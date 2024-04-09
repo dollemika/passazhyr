@@ -27,11 +27,12 @@ public class Bus {
         return array.size();
     }
     public int countTotalWeightOfPas(List<Passazhyr> a){
-        int sum = 0;
-        for (Passazhyr x: array){
-            sum+= x.getWeight();
-        }
-        return sum;
+//        int sum = 0;
+//        for (Passazhyr x: array){
+//            sum+= x.getWeight();
+//        }
+//        return sum;
+        return array.stream().mapToInt(Passazhyr::getWeight).sum();
     }
     public double countMedianeWeightOfPas(List<Passazhyr> a){
         double m = 0;
