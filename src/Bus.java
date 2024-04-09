@@ -2,8 +2,8 @@ import java.util.List;
 
 public class Bus {
     private List<Passazhyr> array;
-    private int totWeight;
-    private double medianeWeight;
+    private int totWeight = 0;
+    private double medianeWeight = 0;
     public Bus(List<Passazhyr> a){
         array = a;
         totWeight = countTotalWeightOfPas(array);
