@@ -1,20 +1,23 @@
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Bus {
-    private List<Passazhyr> array;
+    private ArrayList<Passazhyr> array;
     private int totWeight = 0;
     private double medianeWeight = 0;
-    public Bus(List<Passazhyr> a){
+
+    public Bus(ArrayList<Passazhyr> a){
         array = a;
-        totWeight = countTotalWeightOfPas(array);
-        medianeWeight = countMedianeWeightOfPas(array);
     }
-    public List<Passazhyr> getPass(){
+
+
+    public ArrayList<Passazhyr> getPass(){
         return array;
     }
-    public void setPass(List<Passazhyr> a){
+    public void setPass(ArrayList<Passazhyr> a){
         this.array = a;
-        totWeight = countTotalWeightOfPas(array);
+        totWeight = countTotalWeightOfPas();
         medianeWeight = countMedianeWeightOfPas(array);
     }
     public int getTotWeight(){
@@ -26,7 +29,7 @@ public class Bus {
     public int numOfPas(){
         return array.size();
     }
-    public int countTotalWeightOfPas(List<Passazhyr> a){
+    public int countTotalWeightOfPas(){
 //        int sum = 0;
 //        for (Passazhyr x: array){
 //            sum+= x.getWeight();
@@ -34,13 +37,15 @@ public class Bus {
 //        return sum;
         return array.stream().mapToInt(Passazhyr::getWeight).sum();
     }
-    public double countMedianeWeightOfPas(List<Passazhyr> a){
+    public double countMedianeWeightOfPas(ArrayList<Passazhyr> a){
+        ArrayList<Passazhyr> tmp = (ArrayList<Passazhyr>) a.clone();
+        tmp.sort(Comparator.comparing(Passazhyr::getWeight));
         double m = 0;
-        if (a.size()>0) {
-            if (a.size() % 2 == 0) {
-                m = (a.get(a.size() / 2).getWeight() + a.get(a.size() / 2 - 1).getWeight()) / 2.0;
+        if (tmp.size()>0) {
+            if (tmp.size() % 2 == 0) {
+                m = (tmp.get(tmp.size() / 2).getWeight() + tmp.get(tmp.size() / 2 - 1).getWeight()) / 2.0;
             } else
-                m = a.get(a.size() / 2).getWeight();
+                m = tmp.get(tmp.size() / 2).getWeight();
         }
         return m;
     }

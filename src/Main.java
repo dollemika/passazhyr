@@ -5,17 +5,24 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Passazhyr[] a1 = {new Passazhyr("a",11,50),new Passazhyr("b",11,60)};
+        ArrayList<Passazhyr> a1 = new ArrayList<>();
+        a1.add(new Passazhyr("a",11,50));
+        a1.add(new Passazhyr("b",11,60));
         Bus b1 = new Bus(new ArrayList<>());
-        b1.setPass(List.of(a1));
+        b1.setPass(a1);
 
-        Passazhyr[] a2 = {new Passazhyr("c",11,40),new Passazhyr("d",11,45)};
+        ArrayList<Passazhyr> a2 = new ArrayList<>();
+        a2.add(new Passazhyr("c",11,40));
+        a2.add(new Passazhyr("d",11,45));
         Bus b2 = new Bus(new ArrayList<>());
-        b2.setPass(List.of(a2));
+        b2.setPass(a2);
 
-        Passazhyr[] a3 = {new Passazhyr("e",11,65),new Passazhyr("f",11,50),new Passazhyr("j",11,40)};
+        ArrayList<Passazhyr> a3 = new ArrayList<>();
+        a3.add(new Passazhyr("e",11,65));
+        a3.add(new Passazhyr("f",11,50));
+        a3.add(new Passazhyr("j",11,40));
         Bus b3 = new Bus(new ArrayList<>());
-        b3.setPass(List.of(a3));
+        b3.setPass(a3);
 
         List<Bus> avtopark = new ArrayList<>();
         avtopark.add(b1);
